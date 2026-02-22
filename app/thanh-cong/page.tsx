@@ -59,7 +59,7 @@ function ThanhCongContent() {
 
             {/* Footer nhỏ */}
             <div className="mt-8 pt-6 border-t border-gray-100 flex justify-center opacity-80">
-                <Image src="/logo.svg" alt="Unilever Logo" width={30} height={30} />
+                <Image src="/logo.svg" alt="Unilever Logo" width={40} height={40} />
             </div>
         </div>
     );
