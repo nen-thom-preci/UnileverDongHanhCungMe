@@ -1,49 +1,109 @@
 'use client';
-import Link from 'next/link';
+import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 
 export default function ThamGiaPage() {
+    const router = useRouter();
+    const [name, setName] = useState('');
+    const [phone, setPhone] = useState('');
+    const [imageFile, setImageFile] = useState<File | null>(null);
+    const [isSubmitting, setIsSubmitting] = useState(false);
+
+    const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        if (e.target.files && e.target.files[0]) {
+            setImageFile(e.target.files[0]);
+        }
+    };
+
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+        if (!name || !phone || !imageFile) {
+            alert('Vui lòng điền đầy đủ thông tin!');
+            return;
+        }
+
+        setIsSubmitting(true);
+
+        try {
+            // 1. Chuyển ảnh thành Base64 để gửi qua API
+            const reader = new FileReader();
+            reader.readAsDataURL(imageFile);
+            reader.onloadend = async () => {
+                const base64Image = reader.result as string;
+
+                // 2. Gửi dữ liệu đến API nội bộ của Next.js
+                const response = await fetch('/api/upload', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        name: name,
+                        phone: phone,
+                        imageUrl: base64Image,
+                    }),
+                });
+
+                const result = await response.json();
+
+                if (result.success) {
+                    // Lưu tạm ID vào session để trang thành công có thể hiển thị (tùy chọn)
+                    router.push('/thanh-cong');
+                } else {
+                    // Xử lý lỗi (Ví dụ: Trùng số điện thoại nếu bạn đã đặt Unique)
+                    alert('Có lỗi xảy ra: ' + (result.error || 'Vui lòng kiểm tra lại số điện thoại!'));
+                    setIsSubmitting(false);
+                }
+            };
+        } catch (error) {
+            console.error('Lỗi khi gửi form:', error);
+            alert('Không thể kết nối với máy chủ!');
+            setIsSubmitting(false);
+        }
+    };
+
     return (
-        <div className="min-h-screen bg-blue-50 py-12 px-4 flex justify-center items-center">
-            <div className="bg-white p-8 rounded-2xl shadow-xl max-w-lg w-full">
-                <h2 className="text-2xl font-bold text-blue-900 text-center mb-6">Gửi Ảnh Tham Gia</h2>
+        <div className="min-h-screen bg-[#f8f9fa] py-12 px-4 flex justify-center items-center font-sans">
+            <div className="bg-white p-8 rounded-2xl shadow-xl max-w-lg w-full border-t-8 border-[#0066CB]">
+                <h2 className="font-unilever text-2xl font-bold text-[#123062] text-center mb-2 uppercase">Gửi Ảnh Tham Gia</h2>
+                <p className="text-center text-[#7488E7] text-sm mb-8 font-medium italic">"Cảm ơn vì đã chọn làm mẹ"</p>
 
-                <form className="space-y-4">
+                <form onSubmit={handleSubmit} className="space-y-5">
                     <div>
-                        <label className="block text-gray-700 font-semibold mb-1">Họ và tên người tham gia</label>
-                        <input type="text" className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-900 outline-none" placeholder="Nhập họ tên..." />
-                    </div>
-
-                    <div>
-                        <label className="block text-gray-700 font-semibold mb-1">Số điện thoại</label>
-                        <input type="tel" className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-900 outline-none" placeholder="Nhập SĐT..." />
-                    </div>
-
-                    <div>
-                        <label className="block text-gray-700 font-semibold mb-1">Hệ thống siêu thị đã mua</label>
-                        <select className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-900 outline-none bg-white">
-                            <option>Bách Hóa Xanh</option>
-                            <option>Family Mart</option>
-                            <option>Khác</option>
-                        </select>
+                        <label className="block text-[#123062] font-bold mb-1 text-sm">HỌ VÀ TÊN</label>
+                        <input
+                            type="text" required value={name} onChange={(e) => setName(e.target.value)}
+                            className="w-full px-4 py-3 border-2 border-[#7488E7]/20 rounded-xl focus:border-[#0066CB] outline-none transition-all"
+                            placeholder="Nhập họ tên của bạn..."
+                        />
                     </div>
 
                     <div>
-                        <label className="block text-gray-700 font-semibold mb-1">Tải ảnh chụp cùng Mẹ & Quà tặng</label>
-                        <input type="file" accept="image/*" className="w-full border rounded-lg p-2 bg-blue-50 text-gray-700 file:bg-blue-900 file:text-white file:border-0 file:px-4 file:py-1 file:rounded-md cursor-pointer" />
+                        <label className="block text-[#123062] font-bold mb-1 text-sm">SỐ ĐIỆN THOẠI</label>
+                        <input
+                            type="tel" required value={phone} onChange={(e) => setPhone(e.target.value)}
+                            className="w-full px-4 py-3 border-2 border-[#7488E7]/20 rounded-xl focus:border-[#0066CB] outline-none transition-all"
+                            placeholder="Dùng để nhận mã dự thưởng..."
+                        />
                     </div>
 
-                    <div className="flex items-start gap-2 pt-2">
-                        <input type="checkbox" id="term" className="mt-1 w-4 h-4 cursor-pointer" />
-                        <label htmlFor="term" className="text-sm text-gray-600 cursor-pointer">
-                            Tôi đồng ý với <Link href="/the-le" className="text-blue-600 underline">Thể lệ chương trình</Link> và chia sẻ hình ảnh này.
-                        </label>
+                    <div>
+                        <label className="block text-[#123062] font-bold mb-1 text-sm">ẢNH CHỤP CÙNG MẸ</label>
+                        <div className="relative group cursor-pointer">
+                            <input
+                                type="file" required accept="image/*" onChange={handleImageChange}
+                                className="w-full border-2 border-dashed border-[#7488E7]/40 rounded-xl p-4 bg-[#7488E7]/5 text-[#123062] file:hidden"
+                            />
+                            <div className="absolute inset-0 flex items-center justify-center pointer-events-none text-[#7488E7] font-medium italic">
+                                {imageFile ? imageFile.name : "Nhấn để chọn ảnh từ máy..."}
+                            </div>
+                        </div>
                     </div>
 
-                    <div className="pt-4">
-                        <Link href="/thanh-cong" className="block text-center w-full bg-blue-900 text-white px-4 py-3 rounded-lg font-bold hover:bg-blue-800 transition">
-                            Hoàn Thành & Nhận Mã
-                        </Link>
-                    </div>
+                    <button
+                        type="submit" disabled={isSubmitting}
+                        className="w-full bg-[#0066CB] text-white py-4 rounded-xl font-black text-lg hover:bg-[#123062] transition-all shadow-lg active:scale-95 disabled:opacity-50"
+                    >
+                        {isSubmitting ? 'ĐANG XỬ LÝ...' : 'XÁC NHẬN THAM GIA'}
+                    </button>
                 </form>
             </div>
         </div>
