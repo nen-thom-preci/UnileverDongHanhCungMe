@@ -11,7 +11,7 @@ const unileverFont = localFont({
 });
 
 export const metadata: Metadata = {
-  title: 'Tri Ân Mẹ Trong Từng Khoảnh Khắc',
+  title: 'Unilever cảm ơn Mẹ vì đã dũng cảm chọn làm mẹ',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

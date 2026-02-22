@@ -6,7 +6,7 @@ export default function TheLePage() {
             <div className="max-w-3xl mx-auto">
                 <Link href="/" className="text-[brand-primary] hover:text-[brand-dark] font-semibold mb-6 inline-block transition">← Trở về Trang chủ</Link>
 
-                <h1 className="font-unilever text-3xl font-bold text-[brand-dark] mb-8 border-b border-[brand-secondary]/30 pb-4">Thể Lệ Chương Trình "Tri Ân Mẹ"</h1>
+                <h1 className="font-unilever text-3xl font-bold text-[brand-dark] mb-8 border-b border-[brand-secondary]/30 pb-4">Thể Lệ Chương Trình "Unilever tri ân những khoảnh khắc của mẹ"</h1>
 
                 <div className="space-y-6 text-[brand-dark]/90 leading-relaxed">
                     <section>
