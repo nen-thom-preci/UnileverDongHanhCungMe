@@ -7,7 +7,7 @@ export default function HomePage() {
       <section className="relative w-full bg-gradient-to-br from-[#123062] via-[#0066CB] to-[#7488E7] py-24 px-4 text-center overflow-hidden">
         <div className="relative max-w-4xl mx-auto flex flex-col items-center z-10">
           <h1 className="font-unilever text-4xl md:text-6xl font-extrabold text-white mb-6 uppercase tracking-wide leading-tight drop-shadow-md">
-            Tri Ân Mẹ <br /> Trong Từng Khoảnh Khắc
+            Cảm ơn Mẹ <br /> vì đã dũng cảm chọn làm mẹ
           </h1>
           <p className="text-lg md:text-xl text-white/90 mb-10 max-w-2xl font-medium">
             Mua sắm sản phẩm chăm sóc gia đình, nhận ngay quà tặng túi vải, in ảnh miễn phí cùng khung hình chữ U độc quyền và cơ hội trúng hàng nghìn phần quà giá trị!
