@@ -18,14 +18,14 @@ export default function TheLePage() {
                         <h2 className="font-unilever text-xl font-bold text-[brand-primary] mb-2">2. Quy định về hình ảnh hợp lệ (UGC)</h2>
                         <ul className="list-disc pl-5 space-y-1">
                             <li>Hình ảnh phải rõ nét, thấy rõ mặt người tham gia và Mẹ.</li>
-                            <li>Bắt buộc xuất hiện quà tặng khung ảnh chữ U hoặc sản phẩm của nhãn hàng.</li>
+                            <li>Có mặt quà tặng từ thương hiệu (khung ảnh chữ U, cài tóc, pin cài áo,...) hoặc các sản phẩm của công ty Unilever.</li>
                             <li>Không vi phạm thuần phong mỹ tục.</li>
                         </ul>
                     </section>
 
                     <section>
                         <h2 className="font-unilever text-xl font-bold text-[brand-primary] mb-2">3. Cơ cấu giải thưởng & Quay số</h2>
-                        <p>Mỗi ảnh hợp lệ sẽ nhận 1 mã dự thưởng. BTC sẽ tiến hành quay số ngẫu nhiên vào cuối chiến dịch để trao combo Personal Care & Homecare.</p>
+                        <p>Mỗi ảnh hợp lệ sẽ nhận 1 mã dự thưởng. BTC sẽ tiến hành quay số ngẫu nhiên vào cuối chiến dịch để trao 10.000 combo chăm sóc cá nhân (Lifebuoy, Lux, Axe, Closeup, P/S) và chăm sóc gia đình (OMO, Surf, Comfort, Sunlight, Cif).</p>
                     </section>
                 </div>
             </div>
