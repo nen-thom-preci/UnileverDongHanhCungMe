@@ -89,17 +89,17 @@ export default function ThuVienPage() {
                 {!isLoading && images.length > 0 && (
                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 md:gap-10">
                         {images.map((img) => (
-                            <div
-                                key={img.id}
+                            <div key={img.id}
                                 className="bg-white p-3 pb-6 rounded-sm shadow-[0_8px_20px_rgba(0,0,0,0.08)] hover:shadow-[0_15px_30px_rgba(0,102,203,0.2)] hover:-translate-y-2 hover:rotate-1 transition-all duration-300 flex flex-col items-center group cursor-pointer"
                             >
-                                {/* Khu vực ảnh */}
-                                <div className="w-full aspect-[4/5] bg-[#f0f2f5] overflow-hidden mb-5 relative border border-gray-100">
+                                {/* Khu vực ảnh - Đã bỏ aspect-[4/5] để linh hoạt theo size ảnh */}
+                                <div className="w-full bg-[#f0f2f5] overflow-hidden mb-5 relative border border-gray-100 rounded-sm">
                                     {/* eslint-disable-next-line @next/next/no-img-element */}
                                     <img
                                         src={img.image_url}
                                         alt={`Ảnh của ${img.name}`}
-                                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-in-out"
+                                        // Dùng h-auto để ảnh tự giãn chiều cao theo chiều ngang
+                                        className="w-full h-auto object-contain group-hover:scale-105 transition-transform duration-700 ease-in-out"
                                     />
                                 </div>
 

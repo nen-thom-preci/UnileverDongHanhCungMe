@@ -11,7 +11,7 @@ export default function TheLePage() {
                 <div className="space-y-6 text-[brand-dark]/90 leading-relaxed">
                     <section>
                         <h2 className="font-unilever text-xl font-bold text-[brand-primary] mb-2">1. Thời gian và đối tượng</h2>
-                        <p>Chương trình diễn ra từ ngày 01/05 đến 31/05. Áp dụng cho mọi công dân đang sinh sống tại Việt Nam mua sắm tại hệ thống đối tác.</p>
+                        <p>Chương trình diễn ra từ ngày 04/05 đến 29/05. Áp dụng cho mọi công dân đang sinh sống tại Việt Nam mua sắm tại hệ thống đối tác của Unilever.</p>
                     </section>
 
                     <section>
