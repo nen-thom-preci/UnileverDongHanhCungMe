@@ -24,7 +24,16 @@ export default function ThuVienPage() {
     useEffect(() => {
         async function fetchImages() {
             try {
-                const res = await fetch('/api/get-images');
+                // Ép trình duyệt không được dùng cache bằng cách thêm thời gian thực vào URL
+                // và dùng thuộc tính cache: 'no-store'
+                const res = await fetch(`/api/get-images?t=${new Date().getTime()}`, {
+                    cache: 'no-store',
+                    headers: {
+                        'Cache-Control': 'no-cache',
+                        'Pragma': 'no-cache'
+                    }
+                });
+
                 const data = await res.json();
                 if (data.success) {
                     setImages(data.data);

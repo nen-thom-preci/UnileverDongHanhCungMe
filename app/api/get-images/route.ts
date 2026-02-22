@@ -1,4 +1,4 @@
-export const dynamic = 'force-dynamic'; // Thêm dòng này để tắt cache, ép lấy dữ liệu mới
+export const dynamic = 'force-dynamic'; // Ép Next.js luôn lấy dữ liệu mới nhất
 
 import { NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
@@ -19,6 +19,6 @@ export async function GET() {
         return NextResponse.json({ success: true, data });
     } catch (error) {
         console.error("Lỗi khi lấy dữ liệu:", error);
-        return NextResponse.json({ success: false, error: 'Lỗi lấy dữ liệu' }, { status: 500 });
+        return NextResponse.json({ success: false, error: 'Lỗi server' }, { status: 500 });
     }
 }
