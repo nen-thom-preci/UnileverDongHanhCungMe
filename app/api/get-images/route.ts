@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic'; // Thêm dòng này để tắt cache, ép lấy dữ liệu mới
+
 import { NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
 
