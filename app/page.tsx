@@ -6,11 +6,11 @@ export default function HomePage() {
       {/* Hero Section */}
       <section className="relative w-full bg-gradient-to-br from-[#123062] via-[#0066CB] to-[#7488E7] py-24 px-4 text-center overflow-hidden">
         <div className="relative max-w-4xl mx-auto flex flex-col items-center z-10">
-          <h1 className="font-unilever text-4xl md:text-6xl font-extrabold text-white mb-6 uppercase tracking-wide leading-tight drop-shadow-md">
+          <h1 className="font-unilever text-4xl md:text-5xl font-extrabold text-white mb-6 uppercase tracking-wide leading-tight drop-shadow-md">
             Cảm ơn Mẹ <br /> vì đã dũng cảm chọn làm mẹ
           </h1>
-          <p className="text-lg md:text-xl text-white/90 mb-10 max-w-2xl font-medium">
-            Mua sắm sản phẩm chăm sóc gia đình, nhận ngay quà tặng túi vải, in ảnh miễn phí cùng khung hình chữ U độc quyền và cơ hội trúng hàng nghìn phần quà giá trị!
+          <p className="text-lg md:text-lg text-white/90 mb-10 max-w-2xl font-medium">
+            Nhân dịp ngày của mẹ, Unilever ra mắt chương trình tri ân khách hàng này. Mỗi quý khách khi mua sắm từ 2 sản phẩm của Unilever trở lên sẽ nhận ngay quà tặng tri ân mẹ, ảnh in miễn phí cùng khung nam châm chữ U độc quyền và cơ hội trúng hàng nghìn phần quà giá trị! Chi tiết thể lệ xem tại <Link href="/the-le" className="underline hover:text-white transition">đây</Link>.
           </p>
 
           <Link href="/tham-gia" className="bg-white text-[#0066CB] px-10 py-4 rounded-full font-extrabold text-lg hover:bg-[#123062] hover:text-white transition-all duration-300 shadow-[0_10px_30px_rgba(0,102,203,0.4)] hover:-translate-y-1">
