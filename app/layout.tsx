@@ -23,7 +23,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <header className="bg-white shadow-sm sticky top-0 z-50">
           <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
             <Link href="/" className="flex items-center gap-2">
-              <Image src="/logo.svg" alt="Unilever Logo" width={40} height={40} className="object-contain" />
+              <Image src="/logo.svg" alt="Unilever Logo" width={60} height={60} className="object-contain" />
             </Link>
             <nav className="flex gap-6 font-semibold text-sm sm:text-base">
               <Link href="/" className="hover:text-[#0066CB] transition-colors">Trang Chủ</Link>
