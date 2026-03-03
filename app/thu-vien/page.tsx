@@ -5,6 +5,17 @@ import Image from 'next/image';
 
 // ĐÂY CHÍNH LÀ DICTIONARY (Từ điển thông điệp của 10 nhãn hàng)
 const brandMessages: Record<string, string> = {
+    //"OMO": "Cảm ơn mẹ vì đã chọn để con được tự do lấm bẩn, cho con bài học quý giá từ những trải nghiệm đầu đời",
+    //"Surf": "Cảm ơn mẹ vì đã chọn vun vén những niềm vui giản đơn, cho nhà mình luôn ngát hương hạnh phúc",
+    //"Comfort": "Cảm ơn mẹ vì đã chọn sự dịu dàng vỗ về, để mỗi bước con đi luôn ấm áp như vòng tay mẹ",
+    //"Sunlight": "Cảm ơn vì mẹ đã chọn giữ gian bếp luôn sáng bóng, cho mỗi bữa cơm nhà thêm trọn vẹn niềm vui",
+    //"Cif": "Cảm ơn mẹ vì đã chọn kiên trì giữ gìn tổ ấm, đánh bật mọi vết lo để nhà mình luôn sáng trong",
+    //"Lifebuoy": "Cảm ơn mẹ vì đã chọn làm lá chắn thầm lặng, bảo vệ con vững vàng trước mọi thử thách vô hình",
+    //"Lux": "Cảm ơn mẹ vì đã chọn yêu thương chính mình, để rạng rỡ truyền cảm hứng hạnh phúc cho con",
+    //"Axe": "Cảm ơn mẹ vì đã chọn tin vào bản lĩnh của con, để con can đảm khẳng định chất riêng của mình",
+    //"Closeup": "Cảm ơn mẹ vì đã chọn trao cho con nụ cười tự tin, để con can đảm sát lại gần hơn với những ước mơ",
+    //"P/S": "Cảm ơn mẹ vì đã chọn bảo vệ những điều nhỏ nhất, cho nụ cười con mãi vẹn tròn theo năm tháng",
+
     "OMO": "Cảm ơn vì mẹ đã chọn tạm gác lại những ước mơ riêng của mình, để bước vào hành trình làm mẹ của con",
     "Surf": "Cảm ơn vì mẹ đã chọn gánh lấy phần vất vả để con được lớn lên trong bình yên",
     "Comfort": "Cảm ơn vì mẹ đã chọn bắt đầu một hành trình đầy thử thách vì con, để con có một khởi đầu tốt đẹp nhất",
