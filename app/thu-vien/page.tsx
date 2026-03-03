@@ -25,7 +25,7 @@ const brandMessages: Record<string, string> = {
     "Lux": "Cảm ơn vì mẹ đã chọn trở thành điểm tựa vững vàng của con, để con tự tin bước ra thế giới rộng lớn",
     "Axe": "Cảm ơn vì mẹ đã chọn không từ bỏ trước những thử thách đầu tiên để con có một khởi đầu trọn vẹn",
     "Closeup": "Cảm ơn vì mẹ đã chọn đồng hành trên hành trình trưởng thành của con, bằng tất cả sự kiên nhẫn và yêu thương vô điều kiện",
-    "P/S": "Cảm ơn mẹ vì đã chọn bảo vệ những điều nhỏ nhất, cho nụ cười con mãi vẹn tròn theo năm tháng",
+    "P/S": "Cảm ơn mẹ vì đã chọn bảo vệ những điều nhỏ nhất, cho nụ cười con mãi vẹn tròn theo năm tháng"
 };
 
 export default function ThuVienPage() {
