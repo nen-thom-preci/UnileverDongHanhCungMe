@@ -41,24 +41,25 @@ export default function ThamGiaPage() {
         setIsSubmitting(true);
 
         try {
-            // 1. Nén ảnh
+            // 1. Nén ảnh (Giữ nguyên đoạn này của bạn)
             const options = { maxSizeMB: 0.5, maxWidthOrHeight: 1280, useWebWorker: true };
             const compressedFile = await imageCompression(imageFile, options);
 
-            // 2. Đọc file ảnh (Sử dụng Promise để bắt lỗi chặt chẽ)
-            const base64Image = await new Promise<string>((resolve, reject) => {
-                const reader = new FileReader();
-                reader.readAsDataURL(compressedFile);
-                reader.onloadend = () => resolve(reader.result as string);
-                reader.onerror = (error) => reject(error);
-            });
+            // 2. Đóng gói dữ liệu vào FormData (chuẩn gửi file)
+            const formData = new FormData();
+            formData.append('image', compressedFile); // Đính kèm file thật
+            formData.append('name', name);
+            formData.append('phone', phone);
+            formData.append('brand', brand);
+            formData.append('productCode', productCode);
 
-            // 3. Gửi dữ liệu lên API
+            // 3. Gửi lên API (Không dùng JSON.stringify, Không set Content-Type để trình duyệt tự lo)
             const response = await fetch('/api/upload', {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ name, phone, imageUrl: base64Image, brand, productCode }),
+                body: formData,
             });
+
+            // ... (Đoạn kiểm tra if (!response.ok) ở dưới giữ nguyên)
 
             // Kiểm tra nếu API bị sập (lỗi 500) hoặc trả về mã lỗi HTML
             if (!response.ok) {
@@ -79,10 +80,11 @@ export default function ThamGiaPage() {
                 setIsSubmitting(false);
             }
 
-        } catch (error) {
+        } catch (error: any) {
             console.error('Lỗi chi tiết:', error);
-            alert('Có lỗi xảy ra khi tải dữ liệu! Vui lòng thử lại.');
-            setIsSubmitting(false); // Nhả nút bấm ra nếu bị lỗi mạng/server
+            // Sửa dòng alert chung chung thành dòng hiển thị lỗi gốc từ Server
+            alert('Lỗi hệ thống báo về: ' + error.message);
+            setIsSubmitting(false);
         }
     };
 
